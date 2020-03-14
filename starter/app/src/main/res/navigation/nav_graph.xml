@@ -11,5 +11,16 @@
         android:name="com.udacity.shoestore.LoginFragment"
         android:label="Shoe Store"
         tools:layout="@layout/fragment_login"
+        >
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeScreenFragment"
+            app:destination="@id/welcomeScreenFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeScreenFragment"
+        android:name="com.udacity.shoestore.WelcomeScreenFragment"
+        android:label="fragment_welcome_screen"
+        tools:layout="@layout/fragment_welcome_screen"
         />
 </navigation>

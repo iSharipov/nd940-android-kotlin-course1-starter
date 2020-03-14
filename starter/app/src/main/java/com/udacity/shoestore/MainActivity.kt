@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -36,7 +35,4 @@ class MainActivity : AppCompatActivity(), AppBarConfiguration.OnNavigateUpListen
     ) {
         setupActionBarWithNavController(navController, appBarConfig)
     }
-
-    override fun onSupportNavigateUp() =
-        findNavController(this, R.id.nav_graph).navigateUp()
 }
