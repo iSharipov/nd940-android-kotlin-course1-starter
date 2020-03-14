@@ -20,7 +20,18 @@
     <fragment
         android:id="@+id/welcomeScreenFragment"
         android:name="com.udacity.shoestore.WelcomeScreenFragment"
-        android:label="fragment_welcome_screen"
+        android:label="Welcome"
         tools:layout="@layout/fragment_welcome_screen"
+        >
+        <action
+            android:id="@+id/action_welcomeScreenFragment_to_instructionFragment"
+            app:destination="@id/instructionFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.udacity.shoestore.InstructionFragment"
+        android:label="fragment_instruction"
+        tools:layout="@layout/fragment_instruction"
         />
 </navigation>

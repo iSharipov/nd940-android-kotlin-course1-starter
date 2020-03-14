@@ -4,31 +4,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.udacity.shoestore.databinding.FragmentLoginBinding
+import com.udacity.shoestore.models.Client
 
 class LoginFragment : Fragment() {
-
-    private lateinit var signInButton: Button
-    private lateinit var signUpButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        inflater.inflate(R.layout.fragment_login, container, false)
-        return inflater.inflate(R.layout.fragment_login, container, false).apply {
-            signInButton = findViewById(R.id.button_sign_in)
-            signUpButton = findViewById(R.id.button_sign_up)
+        val binding = DataBindingUtil.inflate<FragmentLoginBinding>(inflater, R.layout.fragment_login, container, false)
+        binding.handler = this
+        binding.client = Client()
+        return binding.root
+    }
 
-            signInButton.setOnClickListener {
-                navigate(it)
-            }
-            signUpButton.setOnClickListener {
-                navigate(it)
-            }
-        }
+    fun signIn(view: View, client: Client) {
+        navigate(view)
+    }
+
+    fun signUp(view: View, client: Client) {
+        navigate(view)
     }
 
     private fun navigate(view: View) {
