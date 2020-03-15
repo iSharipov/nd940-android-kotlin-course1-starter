@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.text.TextUtils"/>
+
         <variable
             name="client"
             type="com.udacity.shoestore.models.Client"
@@ -53,6 +55,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:enabled="@{!TextUtils.isEmpty(client.email) &amp;&amp; !TextUtils.isEmpty(client.password)}"
                 android:onClick="@{(view) -> handler.signIn(view, client)}"
                 android:text="@string/sign_in"
                 />
@@ -62,6 +65,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:enabled="@{!TextUtils.isEmpty(client.email) &amp;&amp; !TextUtils.isEmpty(client.password)}"
                 android:onClick="@{(view) -> handler.signUp(view, client)}"
                 android:text="@string/sign_up"
                 />

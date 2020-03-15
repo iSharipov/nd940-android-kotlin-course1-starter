@@ -1,7 +1,15 @@
 package com.udacity.shoestore.models
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import androidx.databinding.ObservableField
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
-@Parcelize
-data class Client(var email: String? = null, var password: String? = null) : Parcelable
+class Client : ViewModel() {
+    val email = ObservableField<String>()
+    val password = ObservableField<String>()
+
+    private val client: MutableLiveData<Client> = MutableLiveData()
+
+    fun getClient(): LiveData<Client> = client
+}

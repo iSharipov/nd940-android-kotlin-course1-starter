@@ -16,6 +16,10 @@
             android:id="@+id/action_loginFragment_to_welcomeScreenFragment"
             app:destination="@id/welcomeScreenFragment"
             />
+        <action
+            android:id="@+id/action_loginFragment_to_shoesFragment"
+            app:destination="@id/shoesFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/welcomeScreenFragment"

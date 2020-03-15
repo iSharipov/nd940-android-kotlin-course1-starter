@@ -36,4 +36,7 @@ class MainActivity : AppCompatActivity(), AppBarConfiguration.OnNavigateUpListen
     ) {
         setupActionBarWithNavController(navController, appBarConfig)
     }
+
+    override fun onBackPressed() {
+    }
 }
