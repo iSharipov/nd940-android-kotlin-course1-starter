@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ShoeViewModel : ViewModel() {
-    private var shoes: MutableLiveData<List<Shoe>>? = null
+    private var shoes: MutableLiveData<MutableList<Shoe>> = MutableLiveData(mutableListOf())
 
-    fun getShoes(): LiveData<List<Shoe>>? = shoes
+    fun getShoes(): LiveData<MutableList<Shoe>> = shoes
 }

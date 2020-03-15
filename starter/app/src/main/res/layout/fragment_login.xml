@@ -3,8 +3,6 @@
 
     <data>
 
-        <import type="android.text.TextUtils"/>
-
         <variable
             name="client"
             type="com.udacity.shoestore.models.Client"
