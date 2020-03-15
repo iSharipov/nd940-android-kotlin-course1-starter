@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe"
+            />
+
+        <variable
+            name="handler"
+            type="com.udacity.shoestore.ShoeDetailFragment"
+            />
+    </data>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ShoeDetailFragment"
+        >
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/shoe_name_edit_label"
+                android:labelFor="@+id/shoe_name_edit"
+                android:text="@string/shoe_name_edit_label"
+                />
+
+            <EditText
+                android:id="@+id/shoe_name_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal|center_vertical"
+                android:gravity="center_vertical"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="@={shoe.name}"
+                />
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/shoe_company_edit_label"
+                android:labelFor="@+id/shoe_company_edit"
+                android:text="@string/shoe_name_edit_label"
+                />
+
+            <EditText
+                android:id="@+id/shoe_company_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal|center_vertical"
+                android:gravity="center_vertical"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="@={shoe.company}"
+                />
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/shoe_size_edit_label"
+                android:labelFor="@+id/shoe_size_edit"
+                android:text="@string/shoe_size_edit_label"
+                />
+
+            <EditText
+                android:id="@+id/shoe_size_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal|center_vertical"
+                android:gravity="center_vertical"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:text="@={`` + shoe.size}"
+                />
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/shoe_description_edit_label"
+                android:labelFor="@+id/shoe_description_edit"
+                android:text="@string/shoe_description_edit_label"
+                />
+
+            <EditText
+                android:id="@+id/shoe_description_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal|center_vertical"
+                android:gravity="center_vertical"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="@={shoe.description}"
+                />
+        </GridLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            >
+
+            <Button
+                android:id="@+id/button_cancel"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> handler.cancel(view)}"
+                android:text="@string/cancel"
+                />
+
+            <Button
+                android:id="@+id/button_save"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> handler.save(view, shoe)}"
+                android:text="@string/save"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

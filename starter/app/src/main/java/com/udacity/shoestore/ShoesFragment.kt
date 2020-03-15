@@ -8,6 +8,9 @@ import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import com.udacity.shoestore.databinding.FragmentShoesBinding
 import com.udacity.shoestore.databinding.ShoeItemBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeViewModel
@@ -18,20 +21,26 @@ class ShoesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_shoes, container, false)
-        val shoesLayout = root.findViewById<LinearLayout>(R.id.shoes)
+        val shoesBinding = DataBindingUtil.inflate<FragmentShoesBinding>(inflater, R.layout.fragment_shoes, container, false)
+        shoesBinding.handler = this
+        val shoesLayout = shoesBinding.root.findViewById<LinearLayout>(R.id.shoes)
         val shoeViewModel: ShoeViewModel by activityViewModels()
-        shoeViewModel.getShoes().value?.add(Shoe(company = "123", size = 1.1, name = "nike", description = "best"))
-        shoeViewModel.getShoes().value?.forEach { shoe ->
-            val binding = DataBindingUtil.inflate<ShoeItemBinding>(inflater, R.layout.shoe_item, container, false)
-            binding.shoe = shoe
-            shoesLayout.addView(binding.root)
-        }
-        return root
+        shoeViewModel.getShoes().observe(viewLifecycleOwner, Observer<MutableList<Shoe>> { shoes ->
+            shoes.forEach { shoe ->
+                val shoeItemBinding = DataBindingUtil.inflate<ShoeItemBinding>(inflater, R.layout.shoe_item, container, false)
+                shoeItemBinding.shoe = shoe
+                shoesLayout.addView(shoeItemBinding.root)
+            }
+        })
+        return shoesBinding.root
+    }
+
+    fun addShoe(view: View) {
+        navigate(view)
     }
 
     private fun navigate(view: View) {
-        //        val action = LoginFragmentDirections.actionLoginFragmentToWelcomeScreenFragment()
-        //        view.findNavController().navigate(action)
+        val action = ShoesFragmentDirections.actionShoesFragmentToShoeDetailFragment()
+        view.findNavController().navigate(action)
     }
 }

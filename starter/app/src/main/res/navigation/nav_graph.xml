@@ -42,7 +42,23 @@
     <fragment
         android:id="@+id/shoesFragment"
         android:name="com.udacity.shoestore.ShoesFragment"
-        android:label="fragment_shoes"
+        android:label="Shoes"
         tools:layout="@layout/fragment_shoes"
-        />
+        >
+        <action
+            android:id="@+id/action_shoesFragment_to_shoeDetailFragment"
+            app:destination="@id/shoeDetailFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.udacity.shoestore.ShoeDetailFragment"
+        android:label="Shoe"
+        tools:layout="@layout/fragment_shoe_detail"
+        >
+        <action
+            android:id="@+id/action_shoeDetailFragment_to_shoesFragment"
+            app:destination="@id/shoesFragment"
+            />
+    </fragment>
 </navigation>

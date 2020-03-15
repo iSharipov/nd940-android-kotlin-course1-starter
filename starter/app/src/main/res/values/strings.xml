@@ -13,4 +13,9 @@
     <string name="shoes">Shoes</string>
     <string name="instruction1">Instruction1</string>
     <string name="instruction2">Instruction2</string>
+    <string name="shoe_name_edit_label">Shoe name</string>
+    <string name="shoe_size_edit_label">Shoe size</string>
+    <string name="shoe_description_edit_label">Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>

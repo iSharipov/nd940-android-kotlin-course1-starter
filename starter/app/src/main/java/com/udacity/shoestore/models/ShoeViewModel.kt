@@ -5,7 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ShoeViewModel : ViewModel() {
-    private var shoes: MutableLiveData<MutableList<Shoe>> = MutableLiveData(mutableListOf())
+    private val shoes: MutableLiveData<MutableList<Shoe>> = MutableLiveData()
+
+    init {
+        shoes.value = ArrayList()
+    }
 
     fun getShoes(): LiveData<MutableList<Shoe>> = shoes
 }
